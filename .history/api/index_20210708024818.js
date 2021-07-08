@@ -37,12 +37,13 @@ app.get('/api/cities/:term', async (req, res) => {
 
 app.post('/api/forecast', async (req, res) => {
     const { date, woeid } = req.body
+    console.log('got here')
     console.log(date, woeid);
     if (!date || !woeid) {
         return res.status(400).send("No term") 
     } else {
         try {
-            const data = await axios.get(`${apiUrl}/location/${woeid}/${date.replace(/-/g, '/')}/`);
+            const data = await axios.get(`${apiUrl}/location/${woeid}/${date.replace(/-/g, '/')}/}`);
             console.log('my data', data);
             return res.status(200).json(data.data)
         } catch (err) {
