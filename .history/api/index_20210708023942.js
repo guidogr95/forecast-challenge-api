@@ -42,7 +42,7 @@ app.post('/api/forecast', async (req, res) => {
         return res.status(400).send("No term") 
     } else {
         try {
-            const data = await axios.get(`${apiUrl}/location/${woeid}/${date.replace(/-/g, '/')}/}`);
+            const data = await axios.get(`${apiUrl}/location/${woeid}/${date.replaceAll('-', '/')}/}`);
             return res.status(200).json(data.data)
         } catch (err) {
             console.log(err)
