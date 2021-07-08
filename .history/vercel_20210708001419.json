@@ -8,6 +8,11 @@
   ],
   "routes": [
       {
+        "src": "/api/getAirports",
+        "dest": "/api/index.js",
+        "methods": ["OPTIONS","GET","POST"]
+      },
+      {
         "src": "/api/getCities",
         "dest": "/api/index.js",
         "methods": ["OPTIONS","GET","POST"]
